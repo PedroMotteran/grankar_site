@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="banner">
+    <img src="{{ url_for('static', filename='images/banner.png') }}" alt="Banner da Empresa" class="banner-image">
+</div>
+<div class="titulo_carros_disp">
+    <h1>Carros disponíveis</h1>
+</div>
+<div class="carros-container">
+    {% for carro in carros %}
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/' + carro.imagens[0]) }}" alt="{{ carro.nome }}">
+            <h2>{{ carro.nome }}</h2>
+            <p>Ano: {{ carro.ano }}</p>
+            <p>Preço: R$ {{ carro.preco }}</p>
+            <a href="{{ url_for('simular', carro_id=carro._id) }}">Simular Financiamento</a>
+        </div>
+    {% endfor %}
+</div>
+<footer>
+    <p>&copy; Grankar veículos. Todos os direitos reservados.</p>
+</footer>
+{% endblock %}

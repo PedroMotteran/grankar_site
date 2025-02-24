@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="admin-container">
+        <h1>Área de Administração</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <h2>Adicionar Carro</h2>
+            <input type="text" name="nome" placeholder="Nome do Carro" required>
+            <input type="number" name="ano" placeholder="Ano" required>
+            <input type="number" name="preco" placeholder="Preço" required>
+            
+            <div id="imagens-container">
+                <label for="imagens">Selecione as imagens:</label>
+                <input type="file" name="imagens" class="imagem-input" required>
+            </div>
+            <button type="button" id="adicionar-imagem">Adicionar Imagem</button>
+            
+            <textarea name="descricao" placeholder="Descrição"></textarea>
+            <button type="submit" name="add_carro">Adicionar Carro</button>
+        </form>
+        
+        <form method="POST">
+            <h2>Remover Carro</h2>
+            <select name="carro_id">
+                {% for carro in carros %}
+                    <option value="{{ carro._id }}">{{ carro.nome }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" name="remover_carro">Remover Carro</button>
+        </form>
+        
+        <h2>Clientes que Simularam Financiamento</h2>
+        <ul>
+            {% for cliente in clientes %}
+                <li>{{ cliente.nome }} simulou financiamento do {{ cliente.carro_nome }}, telefone: {{ cliente.telefone }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        // JavaScript para adicionar novos campos de upload de imagens
+        document.getElementById('adicionar-imagem').addEventListener('click', function() {
+            const container = document.getElementById('imagens-container');
+            const novoInput = document.createElement('input');
+            novoInput.type = 'file';
+            novoInput.name = 'imagens';
+            novoInput.className = 'imagem-input';
+            container.appendChild(novoInput);
+        });
+    </script>
+{% endblock %}

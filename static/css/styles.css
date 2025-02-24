@@ -1,0 +1,656 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Branco gelo */
+    color: #090645; /* Azul escuro */
+    line-height: 1.6;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #06123a; /* Azul escuro */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo {
+    height: 50px; /* Ajuste o tamanho da logo */
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff4d4d; /* Vermelho ao passar o mouse */
+}
+
+/* Banner */
+.banner {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Ajuste conforme necessário */
+    object-fit: cover;
+}
+
+.titulo_carros_disp {
+    text-align: center;
+    color: #e60000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* Container de carros */
+.carros-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    margin-bottom: 80px; /* Espaço para o rodapé */
+}
+
+/* Cards de carros */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #090645;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #090645;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.card a:hover {
+    background-color: #ff4d4d; /* Vermelho ao passar o mouse */
+}
+
+/* Página de administração */
+.admin-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-container h1 {
+    color: #090645;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.admin-container form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.admin-container form h2 {
+    color: #090645;
+    margin-bottom: 10px;
+}
+
+.admin-container form input,
+.admin-container form textarea,
+.admin-container form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.admin-container form button {
+    padding: 10px 20px;
+    background-color: #090645;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-container form button:hover {
+    background-color: #ff4d4d; /* Vermelho ao passar o mouse */
+}
+
+.admin-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-container ul li {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #090645;
+}
+
+footer {
+    background-color: #090645;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0; /* Coloca o rodapé no final da página */
+    height: 60px; /* Altura do rodapé */
+}
+
+/* Estilos específicos para a página de login */
+body.login-page {
+    background-color: #090645; /* Fundo azul escuro apenas para o login */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-container label {
+    font-size: 14px;
+    color: white;
+    text-align: left;
+}
+
+.login-container input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #090645;
+}
+
+.login-container input[type="password"]:focus {
+    outline: none;
+    border-color: #ff4d4d;
+    background-color: white;
+}
+
+.login-container button {
+    padding: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #e60000;
+}
+
+/* Estilos para a página de detalhes */
+.detalhes-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carro-info {
+    margin-bottom: 20px;
+}
+
+.carro-info h1 {
+    color: #090645;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.carro-info p {
+    font-size: 18px;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* Carrossel de imagens */
+.carro-imagens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.carro-imagens img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 10px;
+    display: none; /* Esconde todas as imagens por padrão */
+}
+
+.carro-imagens img.active {
+    display: block; /* Mostra apenas a imagem ativa */
+}
+
+/* Controles do carrossel */
+.carrossel-controles {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carrossel-controles button {
+    background-color: #090645;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.carrossel-controles button:hover {
+    background-color: #ff4d4d;
+}
+
+/* Formulário de simulação */
+.simulacao-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.simulacao-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #090645;
+}
+
+.simulacao-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.simulacao-form button {
+    padding: 10px 20px;
+    background-color: #090645;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.simulacao-form button:hover {
+    background-color: #ff4d4d;
+}
+
+/* Tabela de resultados */
+.resultado-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.resultado-tabela th,
+.resultado-tabela td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.resultado-tabela th {
+    background-color: #090645;
+    color: white;
+}
+
+.resultado-tabela tr:hover {
+    background-color: #f4f4f4;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav .logo {
+        height: 40px; /* Reduz o tamanho da logo em telas menores */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Reduz o tamanho da fonte dos links */
+    }
+
+    .carros-container {
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .titulo_carros_disp {
+        text-align: center;
+        color: #e60000;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .admin-container form input,
+    .admin-container form textarea,
+    .admin-container form select {
+        font-size: 14px;
+    }
+
+    .admin-container form button {
+        font-size: 14px;
+    }
+
+    .login-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .login-container h1 {
+        font-size: 20px;
+    }
+
+    .login-container input[type="password"] {
+        font-size: 14px;
+    }
+
+    .login-container button {
+        font-size: 14px;
+    }
+
+    .simulacao-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .simulacao-container h1 {
+        font-size: 20px;
+    }
+
+    .simulacao-container input {
+        font-size: 14px;
+    }
+
+    .simulacao-container button {
+        font-size: 14px;
+    }
+
+    .detalhes-container {
+        flex-direction: column;
+    }
+
+    .carro-imagens {
+        margin-right: 0;
+    }
+
+    .carrossel-controles {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li a {
+        font-size: 12px;
+    }
+
+    .banner-image {
+        max-height: 200px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .card a {
+        font-size: 14px;
+    }
+
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-container h1 {
+        font-size: 18px;
+    }
+
+    .login-container input[type="password"] {
+        font-size: 12px;
+    }
+
+    .login-container button {
+        font-size: 12px;
+    }
+
+    .simulacao-container {
+        padding: 15px;
+    }
+
+    .simulacao-container h1 {
+        font-size: 18px;
+    }
+
+    .simulacao-container input {
+        font-size: 12px;
+    }
+
+    .simulacao-container button {
+        font-size: 12px;
+    }
+
+    .carro-imagens {
+        flex-direction: column;
+    }
+
+    .carrossel-controles {
+        margin-top: 10px;
+    }
+}
+
+/* Estilos específicos para a página de simulação */
+body.simulacao-page {
+    background-color: #090645; /* Fundo azul escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.simulacao-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.simulacao-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.simulacao-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.simulacao-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #090645;
+    font-family: 'Poppins', sans-serif;
+}
+
+.simulacao-container input:focus {
+    outline: none;
+    border-color: #ff4d4d;
+    background-color: white;
+}
+
+.simulacao-container button {
+    padding: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.simulacao-container button:hover {
+    background-color: #e60000;
+}
+
+/* Responsividade para a página de simulação */
+@media (max-width: 768px) {
+    .simulacao-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .simulacao-container h1 {
+        font-size: 20px;
+    }
+
+    .simulacao-container input {
+        font-size: 14px;
+    }
+
+    .simulacao-container button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .simulacao-container {
+        padding: 15px;
+    }
+
+    .simulacao-container h1 {
+        font-size: 18px;
+    }
+
+    .simulacao-container input {
+        font-size: 12px;
+    }
+
+    .simulacao-container button {
+        font-size: 12px;
+    }
+}

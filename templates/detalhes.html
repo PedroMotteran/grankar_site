@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="detalhes-container">
+        <!-- Carrossel de imagens -->
+        <div class="carro-imagens">
+            {% for imagem in carro.imagens %}
+                <img src="{{ url_for('static', filename='images/' + imagem) }}" alt="{{ carro.nome }}" {% if loop.first %}class="active"{% endif %}>
+            {% endfor %}
+            <div class="carrossel-controles">
+                <button onclick="mudarImagem(-1)">Anterior</button>
+                <button onclick="mudarImagem(1)">Próxima</button>
+            </div>
+        </div>
+
+        <!-- Informações do carro -->
+        <div class="carro-info">
+            <h1>{{ carro.nome }}</h1>
+            <p>Ano: {{ carro.ano }}</p>
+            <p>Preço: R$ {{ carro.preco }}</p>
+            <p>{{ carro.descricao }}</p>
+        </div>
+    </div>
+
+    <!-- Formulário de simulação -->
+    <div class="simulacao-form">
+        <h2>Simular Financiamento</h2>
+        <label for="entrada">Valor de Entrada (R$):</label>
+        <input type="number" id="entrada" placeholder="Valor de entrada">
+        
+        <label for="parcelas">Número de Parcelas:</label>
+        <input type="number" id="parcelas" placeholder="Número de parcelas" min="1">
+        
+        <button type="button" onclick="calcularFinanciamento()">Calcular</button>
+    </div>
+
+    <!-- Tabela de resultados -->
+    <table class="resultado-tabela" id="resultado-tabela">
+        <thead>
+            <tr>
+                <th>Banco</th>
+                <th>Taxa de Juros</th>
+                <th>Valor Financiado</th>
+                <th>Parcela Mensal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Resultados serão inseridos aqui via JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Carrossel de imagens
+        let indiceImagem = 0;
+
+        function mudarImagem(direcao) {
+            const imagens = document.querySelectorAll('.carro-imagens img');
+            imagens[indiceImagem].classList.remove('active');
+            indiceImagem = (indiceImagem + direcao + imagens.length) % imagens.length;
+            imagens[indiceImagem].classList.add('active');
+        }
+
+        // Cálculo do financiamento
+        function calcularFinanciamento() {
+            const entrada = parseFloat(document.getElementById('entrada').value);
+            const parcelas = parseFloat(document.getElementById('parcelas').value);
+            const precoCarro = parseFloat("{{ carro.preco }}");
+            const valorFinanciado = precoCarro - entrada;
+
+            if (isNaN(entrada)) {
+                alert("Por favor, insira um valor de entrada válido.");
+                return;
+            }
+
+            if (isNaN(parcelas)) {
+                alert("Por favor, insira um número de parcelas válido.");
+                return;
+            }
+
+            const bancos = [
+                { nome: "Banco CNH Industrial", taxa: 1.16 },
+                { nome: "Banco Safra", taxa: 1.59 },
+                { nome: "Banco Bradesco", taxa: 1.63 },
+                { nome: "Banco do Brasil", taxa: 1.50 },
+                { nome: "Banco Itaú", taxa: 1.55 },
+                { nome: "Caixa Econômica", taxa: 1.45 },
+                { nome: "Banco Santander", taxa: 1.60 },
+            ];
+
+            const tabela = document.querySelector('#resultado-tabela tbody');
+            tabela.innerHTML = ''; // Limpa a tabela antes de adicionar novos resultados
+
+            bancos.forEach(banco => {
+                const jurosMensal = banco.taxa / 100; // Taxa de juros mensal
+                const parcelaMensal = (valorFinanciado * jurosMensal) / (1 - Math.pow(1 + jurosMensal, -parcelas));
+                const linha = `
+                    <tr>
+                        <td>${banco.nome}</td>
+                        <td>${banco.taxa}%</td>
+                        <td>R$ ${valorFinanciado.toFixed(2)}</td>
+                        <td>R$ ${parcelaMensal.toFixed(2)}</td>
+                    </tr>
+                `;
+                tabela.insertAdjacentHTML('beforeend', linha);
+            });
+        }
+    </script>
+{% endblock %}

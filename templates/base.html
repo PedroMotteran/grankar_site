@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grankar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo da Empresa" class="logo">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('login') }}">Área de Administração</a></li>
+            <li><a href="https://wa.me/553599882863?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20veículos%20e%20financiamentos." target="_blank">Contato</a></li>
+        </ul>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    
+</body>
+</html>
