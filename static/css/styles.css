@@ -424,6 +424,10 @@ body.login-page {
         margin: 10px 0;
     }
 
+    .tabela_tlt {
+        font-size: 16px;
+    }
+
     .titulo_carros_disp {
         text-align: center;
         color: #e60000;
@@ -504,6 +508,9 @@ body.login-page {
 
     .card p {
         font-size: 14px;
+    }
+    .tabela_tlt {
+        font-size: 16px;
     }
 
     .card a {
@@ -635,6 +642,9 @@ body.simulacao-page {
     .simulacao-container button {
         font-size: 14px;
     }
+    .tabela_tlt {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -652,5 +662,8 @@ body.simulacao-page {
 
     .simulacao-container button {
         font-size: 12px;
+    }
+    .tabela_tlt {
+        font-size: 16px;
     }
 }
